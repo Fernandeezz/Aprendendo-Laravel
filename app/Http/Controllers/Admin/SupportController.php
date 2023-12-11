@@ -25,7 +25,14 @@ class SupportController extends Controller
         return view('admin.supports.create');
     }
 
-    public function store(){
-        dd("Vou Cadastrar");
-    }
+    public function store(Request $request, Support $support){
+
+        $data = $request->except('_token'); // Exclua o campo _token antes de criar o modelo
+    
+        $data['status'] = 'a';
+    
+        $support = $support->create($data);
+    
+        dd($support);
+    }    
 }
