@@ -33,6 +33,6 @@ class SupportController extends Controller
     
         $support = $support->create($data);
     
-        dd($support);
+        return redirect()->route('supports.index');
     }    
 }
