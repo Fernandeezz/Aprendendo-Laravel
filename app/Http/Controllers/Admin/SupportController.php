@@ -56,9 +56,13 @@ class SupportController extends Controller
         if (!$support = Support::find($id)) {
             return back();
         }
-        
+        /*a linha de código completa está atualizando a instância do modelo Support com os valores 
+        fornecidos no formulário para os campos 'subject' e 'body'. Essencialmente, ela está realizando 
+        uma atualização no banco de dados para o registro representado por $support, usando as informações 
+        fornecidas no formulário. */
         $support->update($request->only(['subject', 'body']));
 
+        /*redireciona para a rota 'supports.index' após a edição for concluída */
         return redirect()->route('supports.index');
     }
 }
