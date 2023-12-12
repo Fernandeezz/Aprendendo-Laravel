@@ -53,7 +53,7 @@ class SupportController extends Controller
         return view('admin.supports.edit', compact('support'));
     }
 
-    public function update(Request $request, Support $support, string|int $id){
+    public function update(StoreUpdateSupport $request, Support $support, string|int $id){
         if (!$support = Support::find($id)) {
             return back();
         }
@@ -61,7 +61,7 @@ class SupportController extends Controller
         fornecidos no formulário para os campos 'subject' e 'body'. Essencialmente, ela está realizando 
         uma atualização no banco de dados para o registro representado por $support, usando as informações 
         fornecidas no formulário. */
-        $support->update($request->only(['subject', 'body']));
+        $support->update($request->validated());
 
         /*redireciona para a rota 'supports.index' após a edição for concluída */
         return redirect()->route('supports.index');
