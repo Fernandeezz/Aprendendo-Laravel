@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DTO\createSupportDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateSupport;
+use App\DTO\updateSupportDTO;
 use App\Models\Support;
 use App\Service\SupportService;
 use Illuminate\Http\Request;
@@ -40,14 +42,12 @@ class SupportController extends Controller
         return view('admin.supports.create');
     }
 
-    public function store(StoreUpdateSupport $request, Support $support)
+    public function store(StoreUpdateSupport $request)
     {
-
-        $data = $request->except('_token'); // Exclua o campo _token antes de criar o modelo
-
-        $data['status'] = 'a';
-
-        $support = $support->create($data);
+        $this->service->new(createSupportDTO::makeFromRequest($request));
+        // $data = $request->except('_token'); // Exclua o campo _token antes de criar o modelo
+        // $data['status'] = 'a';
+        // $support = $support->create($data);
 
         return redirect()->route('supports.index');
     }
@@ -62,14 +62,16 @@ class SupportController extends Controller
 
     public function update(StoreUpdateSupport $request, Support $support, string|int $id)
     {
-        if (!$support = Support::find($id)) {
+        $support = $this->service->update(updateSupportDTO::makeFromRequest($request));
+
+        if (!$support) {
             return back();
         }
         /*a linha de código completa está atualizando a instância do modelo Support com os valores 
         fornecidos no formulário para os campos 'subject' e 'body'. Essencialmente, ela está realizando 
         uma atualização no banco de dados para o registro representado por $support, usando as informações 
         fornecidas no formulário. */
-        $support->update($request->validated());
+        // $support->update($request->validated());
 
         /*redireciona para a rota 'supports.index' após a edição for concluída */
         return redirect()->route('supports.index');
