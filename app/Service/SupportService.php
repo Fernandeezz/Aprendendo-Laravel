@@ -4,13 +4,12 @@ namespace App\Service;
 
 use App\DTO\createSupportDTO;
 use App\DTO\updateSupportDTO;
+use App\Repositories\SupportRepositoryInterface;
 use stdClass;
 
 class SupportService {
 
-    protected $repository;
-
-    public function __construct()
+    public function __construct(protected SupportRepositoryInterface $repository)
     {
         
     }
