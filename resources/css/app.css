@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://use.typekit.net/pdd4vby.css");
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=EB+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+[x-cloak] {
+    display: none !important;
+}
+
+body {
+    font-family: 'aileron', 'EB Garamond', sans-serif;
+    background-color: #F6F3ED;
+}
+
+.svg-container #svg2 {
+    display: none;
+}
+
+.svg-container:hover #svg1 {
+    display: none;
+}
+
+.svg-container:hover #svg2 {
+    display: block;
+}
+
+@media (max-width: 1015px) {
+    .hidden-menu {
+        display: none !important;
+    }
+
+    .mobile-menu {
+        display: flex !important;
+    }
+}
+
+/* Estilo de Cursos e Whorkshops */
+
+.workshop-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 69%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 330px;
+    height: 348px;
+}
+
+/* .content:hover .workshop-img {
+    opacity: 0.3;
+} */
+
+.content:hover .middle {
+    opacity: 0.8;
+}
+
+.content:hover .workshop-text {
+    color: #EE8038;
+}
+
+.content {
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .content:nth-child(n+4) {
+        display: none;
+    }
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: auto;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        width: 330px;
+        height: 348px;
+    }
+}
+
+/* Estilo das Postagens do Instagram */
+
+.insta-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+}
+
+.insta-link {
+    position: relative;
+}
+
+.meio {
+    transition: .3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.insta-link:hover .meio {
+    opacity: 1;
+}
+
+.meio div {
+    padding: 20px;
+}
+
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Número de linhas a serem exibidas */
+    -webkit-box-orient: vertical;
+    margin-top: 10px;
+    /* Espaçamento superior da descrição */
+}
+
+/* Estilo Galeria de Vídeos */
+.video-link-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container {
+    position: relative;
+}
+
+.gallery-image {
+    width: 100%;
+    /* Ajuste a largura conforme necessário */
+    height: auto;
+    /* Ajuste a altura conforme necessário */
+    display: block;
+}
+
+.play-button {
+    object-fit: none;
+    width: 80px;
+    /* Ajuste a largura do botão "play" conforme necessário */
+    height: 80px;
+    /* Ajuste a altura do botão "play" conforme necessário */
+}
+
+.Galery :first-child {
+    width: 587px;
+    height: 394px;
+}
+
+.Galery :nth-child(2n) {
+    width: 284px;
+    height: 394px;
+}
+
+/* Estilo da Seção Feedback */
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom, 0px);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #EE8038;
+}
+
+/* Estilo da Seção Blog */
+.title-newsletter {
+    color: #93908d;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100% !important;
+}
+
+@media screen and (max-width: 768px) {
+    .my-newsletter {
+        display: flex;
+    }
+    .swiper-slide {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Style Single Newsletter*/
+
+.text-intern-newsletter {
+    color: #000;
+    text-align: center;
+    font-family: EB Garamond;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135.5%;
+    letter-spacing: 0.3px;
+}
+
+.wp-block-image .aligncenter, .wp-block-image .alignleft, .wp-block-image .alignright, .wp-block-image.aligncenter, .wp-block-image.alignleft, .wp-block-image.alignright {
+    margin-top: 5rem;
+    display: inline-block !important;
+}
+
+.category-link {
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-family: Aileron;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 77px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    text-decoration: none; /* Adicione esta linha para remover a sublinhado do link */
+    margin-right: 10px; /* Adicione margem à direita para espaçamento entre os links, se desejado */
+}
+
+.category-link:hover {
+    color: white;
+    text-align: center;
+    font-family: Aileron;
+    padding: 4px 10px;
+    border-radius: 77px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(to right, #EE8038, #007BFF);
+}
+
+.bg-odd-color {
+    background-color: #EFE7DA;
+}
+
+ul{
+    list-style-type: disc;
+}
+
+#menu li{
+    list-style-type: none;
+}
